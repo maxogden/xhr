@@ -53,7 +53,7 @@ function createXHR(options, callback) {
     xhr.onprogress = function () {
         // IE must die
     }
-    
+
     // xhr.upload.onprogress must be bound BEFORE xhr.send
     if (options.onUploadProgress) {
       if (xhr.upload) xhr.upload.onprogress = options.onUploadProgress
@@ -63,7 +63,7 @@ function createXHR(options, callback) {
     xhr.ontimeout = noop
     xhr.open(method, uri, !sync)
     if (options.cors) {
-        xhr.withCredentials = true
+        xhr.withCredentials = false
     }
     // Cannot set timeout with sync request
     if (!sync) {
